@@ -24,10 +24,10 @@ export type Props = ComponentProps<{
   image?: string;
   video?: string;
   primaryButtonCopy?: string;
-  primaryButtonLink?: Types.ProjectMapLink;
+  primaryButtonLink: Types.ProjectMapLink;
   primaryButtonStyle?: Types.ButtonStyles;
   secondaryButtonCopy?: string;
-  secondaryButtonLink?: Types.ProjectMapLink;
+  secondaryButtonLink: Types.ProjectMapLink;
   secondaryButtonStyle?: Types.ButtonStyles;
   overlayColor?: Types.AvailableColor;
   overlayOpacity?: Types.AvailableOpacity;

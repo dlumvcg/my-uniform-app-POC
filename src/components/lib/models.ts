@@ -1,5 +1,5 @@
 import { EnrichmentData, PersonalizedVariant } from '@uniformdev/context';
-import { Props, HeroVariant } from '@/canvas/Hero';
+import { Props } from '@/canvas/Hero';
 
 export enum ComponentType {
   PersonalizedHero = 'personalizedhero',
