@@ -25,7 +25,7 @@ interface YouTubeResponseType {
 
 const VideoPlayerContainer: React.FC<VideoContainerProps> = ({ channelId, part, maxResults }) => {
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
-  const [YouTubeArr, setYouTubeArr] = useState<YouTubeResponseType | []>([]);
+  const [YouTubeArr, setYouTubeArr] = useState<YouTubeResponseType[] | []>([]);
   const [userQueryString, setUserQueryString] = useState('');
   const YouTubeURL = `https://www.googleapis.com/youtube/v3/search?key=${
     process.env.YOUTUBE_API_KEY
@@ -58,8 +58,6 @@ const VideoPlayerContainer: React.FC<VideoContainerProps> = ({ channelId, part, 
   useEffect(() => {
     searchYouTube();
   }, [userQueryString]);
-
-  // comment
 
   return (
     <div className="video-container">
