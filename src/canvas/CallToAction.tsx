@@ -13,6 +13,7 @@ export type Props = ComponentProps<{
   eyebrowText: string;
   title: string;
   titleStyle: Types.HeadingStyles;
+  titleColor: string;
   description: string;
   primaryButtonCopy: string;
   primaryButtonLink: Types.ProjectMapLink;
@@ -58,6 +59,7 @@ const CallToAction: FC<Props> = ({
   secondaryButtonCopy,
   secondaryButtonLink,
   secondaryButtonStyle,
+  titleColor,
   component: { variant } = {},
 }) => {
   const { isContextualEditing } = useUniformCurrentComposition();
@@ -75,7 +77,7 @@ const CallToAction: FC<Props> = ({
             placeholder="Title goes here"
             parameterId="title"
             as={TitleTag}
-            className={classNames('font-medium', getTextClass(TitleTag))}
+            className={classNames('font-medium', getTextClass(TitleTag), titleColor)}
           />
           <UniformText placeholder="Description goes here" parameterId="description" as="p" className="py-6 text-xl" />
         </div>

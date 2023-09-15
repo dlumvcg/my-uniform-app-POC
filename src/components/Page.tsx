@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { UniformComposition, UniformSlot } from '@uniformdev/canvas-react';
 import type { RootComponentInstance } from '@uniformdev/canvas';
 import { HeroVariant } from '@/canvas/Hero';
+import { FeaturedCalloutVariant } from '@/canvas/FeaturedCallout';
 import UniformPreviewIcon from './UniformPreviewIcon';
 import ThemeProvider from './ThemeProvider';
 import Container from './Container';
@@ -35,14 +36,16 @@ const Page: FC<PageProps> = ({ data: composition, useUniformComposition, preview
         {({ key, child, component }) => {
           // Do not wrap container around the component if it is a container itself
           if (['container', 'spacer', 'banner'].includes(component.type)) return <>{child}</>;
-
           return (
             <Container
               className={classNames({
                 '!max-w-none !px-0':
-                  component.type === 'hero' &&
-                  (component.variant === HeroVariant.BackgroundDarkImage ||
-                    component.variant === HeroVariant.BackgroundLightImage),
+                  (component.type === 'hero' &&
+                    (component.variant === HeroVariant.BackgroundDarkImage ||
+                      component.variant === HeroVariant.BackgroundLightImage)) ||
+                  (component.type === 'featuredCallout' &&
+                    component.variant === FeaturedCalloutVariant.FullWidthImageLeft) ||
+                  component.type === 'verticalContentScroller',
               })}
               // adding padding top only to 1+ component in the content slot
               paddingTop={key.toString().endsWith('-0') ? PaddingSize.None : PaddingSize.Small}

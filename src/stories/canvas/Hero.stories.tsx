@@ -100,3 +100,19 @@ export const BackgroundLightImage: Story = {
   argTypes,
   render: renderStory,
 };
+
+BASE_PROPS.image = '';
+BASE_PROPS.video =
+  'https://res.cloudinary.com/dlui7ka2l/video/upload/v1692982509/02_WhatWeDo_Master_HeroSeqs_agich0.mp4';
+
+export const VideoBackground: Story = {
+  args: {
+    ...BASE_PROPS,
+    component: {
+      type: 'hero',
+      variant: HeroVariant.BackgroundDarkImage,
+    },
+  },
+  argTypes,
+  render: renderStory,
+};

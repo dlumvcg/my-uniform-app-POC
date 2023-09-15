@@ -64,6 +64,7 @@ const Header: FC<HeaderProps> = ({ logo, component, linksAlignment }) => (
           <Link className="ml-8 lg:ml-0" href="/">
             <Image src={getImageUrl(logo)} width="270" height="43" alt="Uniform" />
           </Link>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
           <div className={classNames('hidden lg:flex w-full', getLinksAlignment(linksAlignment))}>
             <ul className="menu menu-horizontal px-1 shrink-0">
               <UniformSlot name="links" />

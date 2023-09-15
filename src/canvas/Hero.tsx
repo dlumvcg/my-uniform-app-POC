@@ -17,17 +17,18 @@ import { getImageUrl } from '@/utils';
 import Button from '@/components/Button';
 
 export type Props = ComponentProps<{
-  eyebrowText: string;
-  title: string;
-  titleStyle: Types.HeadingStyles;
-  description: string;
+  eyebrowText?: string;
+  title?: string;
+  titleStyle?: Types.HeadingStyles;
+  description?: string;
   image?: string;
-  primaryButtonCopy: string;
-  primaryButtonLink: Types.ProjectMapLink;
-  primaryButtonStyle: Types.ButtonStyles;
-  secondaryButtonCopy: string;
-  secondaryButtonLink: Types.ProjectMapLink;
-  secondaryButtonStyle: Types.ButtonStyles;
+  video?: string;
+  primaryButtonCopy?: string;
+  primaryButtonLink?: Types.ProjectMapLink;
+  primaryButtonStyle?: Types.ButtonStyles;
+  secondaryButtonCopy?: string;
+  secondaryButtonLink?: Types.ProjectMapLink;
+  secondaryButtonStyle?: Types.ButtonStyles;
   overlayColor?: Types.AvailableColor;
   overlayOpacity?: Types.AvailableOpacity;
   objectFit?: Types.AvailableObjectFit;
@@ -96,6 +97,7 @@ const Hero: FC<Props> = ({
   overlayOpacity,
   overlayColor,
   objectFit,
+  video,
 }) => {
   const { isContextualEditing } = useUniformCurrentComposition();
   const shouldRenderImage = useMemo(
@@ -109,9 +111,17 @@ const Hero: FC<Props> = ({
   const imageUrl = getImageUrl(image);
 
   return (
-    <div className={classNames('hero min-h-[500px] relative', getTextStyleClass(variant))}>
+    <div className={classNames('hero hero-landing min-h-[500px] relative', getTextStyleClass(variant))}>
+      {!image && video ? (
+        <div className="hero-video">
+          <video autoPlay muted loop>
+            <source src={video} />
+          </video>
+        </div>
+      ) : null}
       <div className={classNames('hero-content text-center p-0', getHeroContentClass(variant))}>
-        {shouldRenderImage &&
+        {!video &&
+          shouldRenderImage &&
           Boolean(imageUrl) &&
           (variant === HeroVariant.BackgroundDarkImage || variant === HeroVariant.BackgroundLightImage ? (
             <>

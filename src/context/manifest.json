@@ -1,6 +1,35 @@
 {
   "project": {
-    "pz": {},
+    "pz": {
+      "sig": {
+        "visitMedia": {
+          "str": 50,
+          "cap": 100,
+          "dur": "s",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "path": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "/media"
+                },
+                "type": "PV"
+              },
+              {
+                "type": "PVC",
+                "match": {
+                  "op": ">",
+                  "rhs": 2
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "test": {}
   }
 }
