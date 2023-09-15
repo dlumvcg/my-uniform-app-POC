@@ -16,6 +16,7 @@ const BASE_PROPS: Omit<CallToActionProps, 'component'> = {
   eyebrowText: 'CALL TO ACTION',
   title: 'Are developers stuck with outdated tech and custom code to maintain?',
   titleStyle: 'h2',
+  titleColor: 'red',
   description:
     "Use this paragraph to share information about your company or brand. Make it as engaging as possible, and showcase your brand's unique personality.",
   primaryButtonCopy: 'Home',
