@@ -108,7 +108,7 @@ const FeaturedCallout: FC<Props> = ({
         </div>
       </div>
       <div className="card-bottom__container">
-        <UniformSlot name="card" />
+        <UniformSlot name="loop" />
       </div>
     </div>
   );

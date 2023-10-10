@@ -22,7 +22,9 @@ export type Props = ComponentProps<{
   titleStyle?: Types.HeadingStyles;
   description?: string;
   image?: string;
-  video?: string;
+  video?: {
+    url: string;
+  }[];
   primaryButtonCopy?: string;
   primaryButtonLink: Types.ProjectMapLink;
   primaryButtonStyle?: Types.ButtonStyles;
@@ -109,13 +111,12 @@ const Hero: FC<Props> = ({
     [variant]
   );
   const imageUrl = getImageUrl(image);
-
   return (
     <div className={classNames('hero hero-landing min-h-[500px] relative', getTextStyleClass(variant))}>
       {!image && video ? (
         <div className="hero-video">
           <video autoPlay muted loop>
-            <source src={video} />
+            <source src={video[0].url} />
           </video>
         </div>
       ) : null}
